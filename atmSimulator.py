@@ -14,8 +14,16 @@ def authenticate(account, pin):
         if pins[index] == pin:
             return True
         return-1
-        
+       
 def check_balance(index):
     print(f"Your Current balance is {balances[index]}")
+
+def deposit(index):
+    amount = float(input("Enter amount to deposit (Rs): "))
+    if amount > 0:
+        balances[index] += amount
+        print(f"Deposit successful! New balance: Rs {balances[index]}")
+    else:
+        print("Invalid deposit amount.")
 
 
