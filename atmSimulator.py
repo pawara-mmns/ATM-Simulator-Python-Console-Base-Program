@@ -66,3 +66,13 @@ def user_details(index):
     print("Account Number:", account_numbers[index])
     print("Account Holder:", names[index])
     print(f"Balance: Rs {balances[index]}")
+
+
+# ===== Main Program =====
+print("💳 Welcome to the ATM Simulator 💳")
+
+account = int(input("Enter your account number: "))
+pin = int(input("Enter your PIN: "))
+
+user_index = authenticate(account, pin)
+
