@@ -26,4 +26,12 @@ def deposit(index):
     else:
         print("Invalid deposit amount.")
 
+def withdraw(index):
+    amount = float(input("Enter amount to withdraw (Rs): "))
+    if 0 < amount <= balances[index]:
+        balances[index] -= amount
+        print(f"Withdrawal successful! New balance: Rs {balances[index]}")
+    else:
+        print("Insufficient balance or invalid amount.")
+
 
