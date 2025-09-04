@@ -51,3 +51,13 @@ def transfer(index):
         print("Target account not found.")
 
 
+def change_pin(index):
+    old_pin = int(input("Enter current PIN: "))
+    if old_pin == pins[index]:
+        new_pin = int(input("Enter new PIN: "))
+        pins[index] = new_pin
+        print("PIN changed successfully!")
+    else:
+        print("Incorrect current PIN.")
+
+
