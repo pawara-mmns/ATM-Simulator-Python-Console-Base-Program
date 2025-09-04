@@ -14,5 +14,8 @@ def authenticate(account, pin):
         if pins[index] == pin:
             return True
         return-1
-    
+        
+def check_balance(index):
+    print(f"Your Current balance is {balances[index]}")
+
 
