@@ -61,3 +61,8 @@ def change_pin(index):
         print("Incorrect current PIN.")
 
 
+def user_details(index):
+    print("===== Account Details =====")
+    print("Account Number:", account_numbers[index])
+    print("Account Holder:", names[index])
+    print(f"Balance: Rs {balances[index]}")
