@@ -78,10 +78,25 @@ def user_details(index):
 # Interface
 print(" Welcome to the ATM Simulator ")
 
-account = int(input("Enter your account number: "))
-pin = int(input("Enter your PIN: "))
+MAX_ATTEMPTS = 3
+attempts = 0
+user_index = -1
 
-user_index = authenticate(account, pin)
+account = int(input("Enter your account number: "))
+
+while attempts < MAX_ATTEMPTS:
+    pin = int(input("Enter your PIN: "))
+    user_index = authenticate(account, pin)
+    if user_index != -1:
+        break
+    else:
+        attempts += 1
+        if attempts < MAX_ATTEMPTS:
+            print(f"Authentication failed ❌ Invalid PIN. Attempts left: {MAX_ATTEMPTS - attempts}")
+        else:
+            print("Authentication failed ❌ Invalid PIN.")
+            print("Card returned. Please contact your bank if you forgot your PIN.")
+            exit()
 
 if user_index != -1:
     print(f"Login successful! Welcome {names[user_index]} 🙏")
@@ -124,4 +139,5 @@ if user_index != -1:
             break
 
 else:
+    # This else is now redundant due to exit() above, but kept for clarity.
     print("Authentication failed ❌ Invalid account number or PIN.")
