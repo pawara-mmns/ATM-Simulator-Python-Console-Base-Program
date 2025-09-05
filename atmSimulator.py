@@ -1,5 +1,9 @@
 import os
 
+# Function to Clear Console 
+def clear_console():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 # Data Arrays 
 account_numbers = [1001, 1002, 1003]   # Account Numbers
 pins = [1234, 2345, 3456]              # PINs
@@ -76,3 +80,45 @@ pin = int(input("Enter your PIN: "))
 
 user_index = authenticate(account, pin)
 
+if user_index != -1:
+    print(f"Login successful! Welcome {names[user_index]} 🙏")
+
+    while True:
+        clear_console()
+        print("\n===== ATM Menu =====")
+        print("1. Check Balance")
+        print("2. Deposit Money")
+        print("3. Withdraw Money")
+        print("4. Transfer Money")
+        print("5. Change PIN")
+        print("6. View Account Details")
+        print("7. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            check_balance(user_index)
+        elif choice == "2":
+            deposit(user_index)
+        elif choice == "3":
+            withdraw(user_index)
+        elif choice == "4":
+            transfer(user_index)
+        elif choice == "5":
+            change_pin(user_index)
+        elif choice == "6":
+            user_details(user_index)
+        elif choice == "7":
+            print("Thank you for using the ATM. Goodbye! 👋")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+        # Ask before going back to menu
+        back = input("\nDo you want to go back to main menu? (y/n): ")
+        if back.lower() != "y":
+            print("Thank you for using the ATM. Goodbye! 👋")
+            break
+
+else:
+    print("Authentication failed ❌ Invalid account number or PIN.")
