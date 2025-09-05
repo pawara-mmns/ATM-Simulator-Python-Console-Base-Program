@@ -1,18 +1,18 @@
 import os
 
-# ===== Function to Clear Console =====
+# Clear Console 
 def clear_console():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-# ===== Data Arrays =====
+# Data Arrays
 account_numbers = [1001, 1002, 1003]   # Account Numbers
 pins = [1234, 2345, 3456]              # PINs
 names = ["Kamal", "Nimal", "Sunil"]    # User names
 balances = [5000, 10000, 7500]         # Balances (in Rs)
 
 
-# ===== ATM Functions =====
+# ATM Functions
 def authenticate(account, pin):
     if account in account_numbers:
         index = account_numbers.index(account)
@@ -75,8 +75,8 @@ def user_details(index):
     print(f"Balance: Rs {balances[index]}")
 
 
-# ===== Main Program =====
-print("💳 Welcome to the ATM Simulator 💳")
+# Interface
+print(" Welcome to the ATM Simulator ")
 
 account = int(input("Enter your account number: "))
 pin = int(input("Enter your PIN: "))
