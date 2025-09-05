@@ -1,26 +1,29 @@
 import os
 
-# Function to Clear Console 
+# ===== Function to Clear Console =====
 def clear_console():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-# Data Arrays 
+
+# ===== Data Arrays =====
 account_numbers = [1001, 1002, 1003]   # Account Numbers
 pins = [1234, 2345, 3456]              # PINs
 names = ["Kamal", "Nimal", "Sunil"]    # User names
-balances = [5000, 10000, 7500]         # Balances 
-# changepins = [1111, 2222, 3333]        # Change PINs
+balances = [5000, 10000, 7500]         # Balances (in Rs)
 
-#  ATM Functions
+
+# ===== ATM Functions =====
 def authenticate(account, pin):
     if account in account_numbers:
         index = account_numbers.index(account)
         if pins[index] == pin:
-            return True
-        return-1
-       
+            return index
+    return -1
+
+
 def check_balance(index):
-    print(f"Your Current balance is {balances[index]}")
+    print(f"Your current balance is: Rs {balances[index]}")
+
 
 def deposit(index):
     amount = float(input("Enter amount to deposit (Rs): "))
